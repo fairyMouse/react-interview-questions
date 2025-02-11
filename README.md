@@ -12,3 +12,9 @@
 ❓ Multiple solution approaches  
 ❓ Performance considerations  
 ❓ New questions added regularly
+
+## Questions
+
+✔️ [What is React?](./questions/what_is_react.md)
+
+✔️ [What is JSX?](./questions/what_is_jsx.md)
