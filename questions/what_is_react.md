@@ -8,7 +8,6 @@
 
 - **Component-Based**: Build encapsulated UI elements with own logic
 - **Declarative**: Describe UI for different states
-
 - **Virtual DOM**: Efficient updates with diffing algorithm
 - **Unidirectional Data Flow**: Props down, events up
 
