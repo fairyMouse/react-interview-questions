@@ -28,10 +28,6 @@ function Header({ title }) {
   return (
     <header>
       <h1>{title}</h1>
-      <nav>
-        <a href="#home">Home</a>
-        <a href="#products">Products</a>
-      </nav>
     </header>
   )
 }
@@ -96,12 +92,39 @@ This makes our code more readable and easier to maintain.
 
 ### 3. Virtual DOM
 
+React's Virtual DOM is a lightweight, in-memory representation of the real DOM.
+
+It boosts performance by creating a new Virtual DOM when data changes, comparing it with the previous version using a "diffing" algorithm, and updating only the changed parts in the actual DOM.
+
+This minimizes costly direct DOM manipulations, making UI updates efficient and fast.
+
 ### 4. Unidirectional Data Flow
 
+React's Unidirectional Data Flow is a design pattern where data moves in one direction—from parent components to child components via props.
+
+State is managed at higher levels and passed down, while child components can trigger updates by calling functions (like event handlers) provided by parents.
+
+This predictable flow simplifies tracking and managing data changes in an application.
+
 ```jsx
-// React component example
-function Greeting({ name }) {
-  return <h1>Hello, {name}</h1>
+// Parent component
+function Parent() {
+  const [count, setCount] = useState(0)
+
+  // Function to update state, passed to child
+  const increment = () => setCount(count + 1)
+
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+      <Child onClick={increment} />
+    </div>
+  )
+}
+
+// Child component
+function Child({ onClick }) {
+  return <button onClick={onClick}>Increment</button>
 }
 ```
 
