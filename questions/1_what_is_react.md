@@ -1,5 +1,3 @@
-# What is React?
-
 ## Core Concept
 
 ⚛️ A JavaScript library for building user interfaces using reusable components. Maintained by Facebook (Meta) and community.
@@ -12,13 +10,16 @@ React build encapsulated UI elements with own logic.
 
 In order to build a user interface, we need to create components and then put them together like building blocks, each component is reusable, and handles its own state and logic
 
-```JSX
+```jsx
 // Parent component
 function ShoppingApp() {
+  const products = ["Laptop", "Phone", "Headphones"]
   return (
     <div>
       <Header title="My Shop" />
-      <ProductCatalog products={['Laptop', 'Phone', 'Headphones']} />
+      {products.map((product, index) => (
+        <Product key={index} name={product} />
+      ))}
     </div>
   )
 }
@@ -29,17 +30,6 @@ function Header({ title }) {
     <header>
       <h1>{title}</h1>
     </header>
-  )
-}
-
-// Product list component
-function ProductCatalog({ products }) {
-  return (
-    <div>
-      {products.map((product, index) => (
-        <Product key={index} name={product} />
-      ))}
-    </div>
   )
 }
 
@@ -94,6 +84,17 @@ This makes our code more readable and easier to maintain.
 
 React's Virtual DOM is a lightweight, in-memory representation of the real DOM.
 
+```jsx
+// Simplified Virtual DOM representation
+{
+  type: 'div',
+  props: { className: 'container' },
+  children: [
+    { type: 'h1', props: {}, children: ['Hello'] }
+  ]
+}
+```
+
 It boosts performance by creating a new Virtual DOM when data changes, comparing it with the previous version using a "diffing" algorithm, and updating only the changed parts in the actual DOM.
 
 This minimizes costly direct DOM manipulations, making UI updates efficient and fast.
@@ -127,11 +128,3 @@ function Child({ onClick }) {
   return <button onClick={onClick}>Increment</button>
 }
 ```
-
-## React vs Others
-
-|              | React       | Angular    | Vue         |
-| ------------ | ----------- | ---------- | ----------- |
-| **Type**     | Library     | Framework  | Framework   |
-| **DOM**      | Virtual DOM | Real DOM   | Virtual DOM |
-| **Learning** | JS-focused  | TypeScript | Template    |
