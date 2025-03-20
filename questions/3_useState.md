@@ -1,6 +1,6 @@
 ## Concise Introduction
 
-`useState` is React's fundamental state management hook that gives function components memory.It is one of the most commonly used hooks.
+`useState` is React's fundamental state management hook that gives function components memory. It is one of the most commonly used hooks.
 
 ```jsx
 // Basic usage pattern
@@ -21,7 +21,7 @@ Each component instance maintains its own state
 
 ### 2. Update Triggers
 
-Calling the setter function (e.g., setValue) queues a re-render
+Calling the setter function(like setValue) will trigger a re-render
 
 **Batching Updates**
 
@@ -72,7 +72,7 @@ setUser(prev => ({ ...prev, age: 25 }))
 setList(prev => [...prev, newItem])
 ```
 
-# useState Essential Usage Guide
+## Key Considerations
 
 ## 1. Closure Trap
 
@@ -89,7 +89,7 @@ const increment = () => setCount(prev => prev + 1)
 
 **Rule**: Always return new references for state objects/arrays
 
-## 5. Dependency Management
+## 2. Dependency Management
 
 ```jsx
 useEffect(() => {
@@ -109,15 +109,3 @@ useEffect(() => {
 - Merge related states into objects
 - Never mutate state directly
 - Use controlled components for forms
-
-## Common Pitfalls
-
-```jsx
-// ❌ Direct mutation
-const [list] = useState([1, 2, 3])
-list.push(4) // No re-render
-
-// ❌ Accessing state after async update
-setCount(42)
-console.log(count) // Old value
-```
