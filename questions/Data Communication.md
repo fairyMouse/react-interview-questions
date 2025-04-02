@@ -2,7 +2,7 @@ React applications utilize several patterns for data communication, each suited 
 
 ## 1、Props (Parent-Child Communication)
 
-The most fundamental method for data flow, following React's unidirectional data pattern.
+This is the most fundamental method for data flow, following React's unidirectional data pattern.
 
 ```jsx
 // Parent component
@@ -24,7 +24,7 @@ function Child({ message, onUpdate }) {
 
 ## 2. Context API (Cross-Component Communication)
 
-Ideal when data needs to be shared across multiple levels of the component tree.
+This is ideal method when data needs to be shared across multiple levels of the component tree.
 
 ```jsx
 // Create context
@@ -58,9 +58,11 @@ function Button() {
 
 ## 3. State Management Libraries
 
+For more complex application states, we need to use the state management library
+
 ### 1. Zustand
 
-Lightweight state management with a simple API.
+Zustand is a lightweight state management library with a simple API.
 
 ```jsx
 // Create store
@@ -117,5 +119,5 @@ function TodoList() {
 Choose the appropriate communication method based on application size and complexity, avoiding over-engineering
 
 - Small applications: Props + Context API
-- Medium-sized applications: Zustand or Context+useReducer
-- Large applications: Redux Toolkit
+- Medium-sized applications: Props + Context API + Zustand
+- Large applications: Props + Context API + Redux Toolkit
